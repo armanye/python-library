@@ -9,6 +9,9 @@ from python_library.metrics import Metrics
 
 
 class DebugHandler(tornado.web.RequestHandler):
+    def initialize(self, app=None):
+        self._app = app
+
     def get(self):
         Metrics.requests_total.labels(handler="Debug").inc()
 
@@ -25,6 +28,7 @@ class DebugHandler(tornado.web.RequestHandler):
                 "ts": datetime.datetime.utcnow().isoformat(),
                 "hostname": hostname,
                 "ip": ip,
+                "app": self._app.debug(),
             }
         )
 
