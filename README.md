@@ -12,6 +12,7 @@ This is the python boilerplate i use in nearly all python projects i use.
 * sane logging defaults
 * standard python library best practices
 * debugging info on /debugz
+* prometheus metrics on /metrics
 * since its using tornado you can easily do async and multithreading easily
 
 ### tornado
@@ -55,6 +56,7 @@ python3 -m python_library
 * [http://127.0.0.1:1234/debugz](http://127.0.0.1:1234/debugz) - Show
   some debugging info.  Way more useful with the [json formatter chrome
   extension](https://chrome.google.com/webstore/detail/json-formatter/bcjindcccaagfpapjjmafapmmgkkhgoa?hl=en)
+* [http://127.0.0.1:1234/metrics](http://127.0.0.1:1234/metrics) - Prometheus metrics
 
 ## deploy
 

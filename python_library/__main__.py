@@ -5,7 +5,7 @@ import time
 import tornado.ioloop
 import tornado.web
 
-from python_library.handlers import DebugHandler
+from python_library.handlers import DebugHandler, MetricsHandler
 
 
 logger = logging.getLogger(__name__)
@@ -21,6 +21,9 @@ if __name__ == "__main__":
         level=logging.INFO,
     )
 
+    # Silence tornado access logs since we have prometheus metrics
+    logging.getLogger("tornado.access").setLevel(logging.WARNING)
+
     parser = argparse.ArgumentParser()
     parser.add_argument("--port", default=8000, type=int, help="port to listen on")
 
@@ -30,6 +33,7 @@ if __name__ == "__main__":
 
     routes = [
         (r"/debugz", DebugHandler),
+        (r"/metrics", MetricsHandler),
     ]
 
     settings = {

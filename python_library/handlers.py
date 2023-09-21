@@ -5,6 +5,8 @@ import tornado.web
 
 from prometheus_client import generate_latest
 
+from python_library.metrics import Metrics
+
 
 class DebugHandler(tornado.web.RequestHandler):
     def get(self):
@@ -25,3 +27,11 @@ class DebugHandler(tornado.web.RequestHandler):
                 "ip": ip,
             }
         )
+
+
+class MetricsHandler(tornado.web.RequestHandler):
+    def get(self):
+        Metrics.requests_total.labels(handler="Metrics").inc()
+
+        self.set_header("Content-Type", "text/plain")
+        self.write(generate_latest())

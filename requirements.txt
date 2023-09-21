@@ -1,1 +1,2 @@
+prometheus_client==0.17.1
 tornado==6.3.3
