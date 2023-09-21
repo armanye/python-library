@@ -1,0 +1,27 @@
+# Python generated files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Python egg metadata, scripts, and packages
+*.egg-info/
+dist/
+build/
+__pycache__/
+*.pyc
+
+# Compiled bytecode
+*.pyc
+*.pyo
+__pycache__/
+
+# Distribution files
+*.egg
+*.egg-info
+*.eggs
+*.dist-info
+*.build
+*.wheel
+*.tar.gz
+*.whl

@@ -1,0 +1,8 @@
+version: "3.8"
+
+services:
+  app:
+    volumes:
+      # For local development, you run the image and it will autoreload
+      # which changes locally
+      - ../python_library:/usr/local/lib/python3.10/site-packages/python_library
